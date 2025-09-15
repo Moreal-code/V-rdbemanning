@@ -34,7 +34,7 @@ a {
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 0 8px;
+  padding: 0 16px;
 }
 
 nav {
@@ -164,12 +164,60 @@ nav ul li:hover > .dropdown {
   max-width: 100%;
 }
 
+/* Våra uppdrag (egen layout) */
+#assignments {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    260px
+  ); /* fasta kolumnbredder för att styra horisontellt avstånd */
+  column-gap: 16px; /* horisontellt mellanrum */
+  row-gap: 20px; /* vertikalt mellanrum */
+  justify-content: center; /* centrera två kolumner i containern */
+  margin-top: 64px; /* närmare header */
+  margin-bottom: 100px; /* mer luft mot footern */
+}
+
+.assignment-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.assignment-card img {
+  width: 100%;
+  max-width: 220px; /* mindre på desktop */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.assignment-card h1 {
+  font-size: 22px;
+  margin-top: 6px;
+  color: var(--primary-dark);
+}
+
+.assignment-card a {
+  text-decoration: none;
+}
+
+/* Titel över assignments */
+#assignments > h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
 /* Om oss del */
 #about {
   display: flex;
   margin-top: 120px;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 4px; /* mer mellanrum mellan text och bild */
+  align-items: center; /* centrera vertikalt på desktop */
 }
 
 .about-content {
@@ -179,7 +227,7 @@ nav ul li:hover > .dropdown {
   justify-content: center;
 }
 .about-content h1 {
-  font-style: 32px;
+  font-size: 32px;
   color: var(--primary-dark);
   text-transform: uppercase;
 }
@@ -216,7 +264,9 @@ nav ul li:hover > .dropdown {
 /* Footer */
 footer {
   background: white;
-  padding-top: 50px;
+  padding-top: 64px;
+  border-top: 1px solid #efefef;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
 }
 
 footer .container {
@@ -340,6 +390,27 @@ form h1 {
 /* Mediaquery */
 
 @media only screen and (max-width: 520px) {
+  /* Assignments: 1 kolumn på mobil */
+  #assignments {
+    grid-template-columns: 200px; /* fast kolumnbredd på mobil */
+    justify-content: center;
+    column-gap: 12px;
+    row-gap: 16px;
+    margin-top: 60px;
+  }
+  .assignment-card img {
+    max-width: 160px; /* mindre på mobil */
+  }
+  .container {
+    padding: 0 20px;
+  }
+
+  /* About mobile layout */
+  #about {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 60px;
+  }
   /* Header och content */
   #header {
     min-height: 50vh;
