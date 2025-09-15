@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section id="contact-header">
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="index.html"><h1>Vårdbemanning</h1></a>
+          </div>
+          <ul class="nav-links">
+            <li>
+              <a href="#">Våra Uppdrag <span class="arrow">▼</span></a>
+              <ul class="dropdown">
+                <li><a href="#">Läkare</a></li>
+                <li><a href="#">Sjuksköterska</a></li>
+                <li><a href="#">Undersköterska</a></li>
+                <li><a href="#">Socionom</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Affärsområden <span class="arrow">▼</span></a>
+              <ul class="dropdown">
+                <li><a href="#">Läkare</a></li>
+                <li><a href="#">Sjuksköterska</a></li>
+                <li><a href="#">Undersköterska</a></li>
+                <li><a href="#">Socionom</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Om Oss</a></li>
+            <li><a href="#">Kontakta Oss</a></li>
+          </ul>
+          <div class="menu-btn"><img src="./img/menu.svg" alt="" /></div>
+          <div class="close-btn">✕</div>
+        </nav>
+
+        <div class="header-content">
+          <h1>Kontakta oss</h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-us" class="container">
+      <form action="#">
+        <h1>Formulär</h1>
+
+        <div class="inputsWrapper">
+          <input type="text" placeholder="Namn" />
+          <input type="text" placeholder="Specialitet" />
+          <input type="text" placeholder="E-post" />
+          <input type="text" placeholder="Telefonnummer" />
+          <textarea
+            name="message"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Ditt meddelande"
+          ></textarea>
+          <button class="primary-btn">Skicka</button>
+        </div>
+      </form>
+
+      <div class="address">
+        <h1>Prata med oss</h1>
+
+        <div class="detailsWrapper">
+          <div class="detail">
+            <img src="./img/email.png" alt="" />
+            <div class="text">
+              <h6>Email</h6>
+              <p>Här ska mailet vara</p>
+            </div>
+          </div>
+          <div class="detail">
+            <img src="./img/phone.png" alt="" />
+            <div class="text">
+              <h6>Telefon</h6>
+              <p>Här ska telefonnummret vara</p>
+            </div>
+          </div>
+          <div class="detail">
+            <img src="./img/location.png" alt="" />
+            <div class="text">
+              <h6>Hitta till oss</h6>
+              <p>
+                Här ska addressen vara <br />
+                ackncknsdklc
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <h3>Våra Uppdrag</h3>
+          <ul class="list">
+            <li><a href="#">Läkare</a></li>
+            <li><a href="#">Sjuksköterska</a></li>
+            <li><a href="#">Undersköterska</a></li>
+            <li><a href="#">Socionom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-content">
+          <h3>Affärsområden</h3>
+          <ul class="list">
+            <li><a href="#">Läkare</a></li>
+            <li><a href="#">Sjuksköterska</a></li>
+            <li><a href="#">Undersköterska</a></li>
+            <li><a href="#">Socionom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-content">
+          <h3>Mitt Företag</h3>
+          <ul class="list">
+            <li><a href="#">Om Oss</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const closeBtn = document.querySelector(".close-btn");
+      const menuBtn = document.querySelector(".menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+      });
+
+      // Dropdown på mobil
+      const dropdownLinks = document.querySelectorAll("nav ul li > a");
+
+      dropdownLinks.forEach((link) => {
+        const parentLi = link.parentElement;
+        const dropdown = parentLi.querySelector(".dropdown");
+
+        if (dropdown) {
+          link.addEventListener("click", (e) => {
+            // Endast för mobil, desktop använder hover
+            if (window.innerWidth <= 520) {
+              e.preventDefault(); // förhindrar att länken följs
+              parentLi.classList.toggle("active"); // lägger till class för rotation och öppning
+              dropdown.style.display =
+                dropdown.style.display === "block" ? "none" : "block";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
