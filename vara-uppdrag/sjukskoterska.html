@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hem</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <section id="contact-header">
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="/"><h1>Vårdbemanning</h1></a>
+          </div>
+          <ul class="nav-links">
+            <li>
+              <a href="./vara-uppdrag.html"
+                >VÅRA UPPDRAG <span class="arrow">▼</span></a
+              >
+              <ul class="dropdown">
+                <li><a href="./lakare.html">LÄKARE</a></li>
+                <li><a href="./sjukskoterska.html">SJUKSKÖTERSKA</a></li>
+                <li><a href="./underskoterska.html">UNDERSKÖTERSKA</a></li>
+                <li><a href="./socionom.html">SOCIONOM</a></li>
+              </ul>
+            </li>
+            <li><a href="#">OM OSS</a></li>
+            <li><a href="./kontakta-oss.html">KONTAKTA OSS</a></li>
+            </a></li>
+          </ul>
+          <div class="menu-btn"><img src="./img/menu.svg" alt="" /></div>
+          <div class="close-btn">✕</div>
+        </nav>
+
+        <div class="header-content">
+          <h1>Om Oss</h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="about-content">
+        <h1>Om Oss</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam,
+          suscipit. Voluptates commodi eum sint mollitia unde earum eos facilis
+          molestias tempora cupiditate a impedit quam, velit fugiat ad quasi
+          beatae!
+        </p>
+      </div>
+      <div class="about-img">
+        <img src="./img/service-1.png" alt="" />
+      </div>
+    </section>
+
+    <section id="talk-to-us">
+      <div class="talk-to-us-content">
+        <h1>Talk to Us</h1>
+        <p>ndcjdsncjkndsjkcvnsdjkncvjknsdkjvnkjsnvkjnsdkjn</p>
+        <button class="primary-btn">Get in Toucds</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <h3>Kontakta Oss</h3>
+          <p>Email: info@example.com</p>
+          <p>Phone: +121 56556 565556</p>
+          <p>Address: Din adress 123 Street</p>
+        </div>
+
+        <div class="footer-content">
+          <h3>Våra Uppdrag</h3>
+          <ul class="list">
+            <li><a href="./lakare.html">Läkare</a></li>
+            <li><a href="./sjukskoterska.html">Sjuksköterska</a></li>
+            <li><a href="./underskoterska.html">Undersköterska</a></li>
+            <li><a href="./socionom.html">Socionom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-content">
+          <h3>Mitt Företag</h3>
+          <ul class="list">
+            <li><a href="#">Om Oss</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const closeBtn = document.querySelector(".close-btn");
+      const menuBtn = document.querySelector(".menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+      });
+      closeBtn.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+      });
+
+      // Dropdown på mobil
+      const dropdownLinks = document.querySelectorAll("nav ul li > a");
+
+      dropdownLinks.forEach((link) => {
+        const parentLi = link.parentElement;
+        const dropdown = parentLi.querySelector(".dropdown");
+
+        if (dropdown) {
+          link.addEventListener("click", (e) => {
+            // Endast för mobil, desktop använder hover
+            if (window.innerWidth <= 520) {
+              e.preventDefault(); // förhindrar att länken följs
+              parentLi.classList.toggle("active"); // lägger till class för rotation och öppning
+              dropdown.style.display =
+                dropdown.style.display === "block" ? "none" : "block";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
