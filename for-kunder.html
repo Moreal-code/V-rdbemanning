@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <a href="/"><h1>Vårdbemanning</h1></a>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="./vara-uppdrag.html"
+            >VÅRA UPPDRAG <span class="arrow">▼</span></a
+          >
+          <ul class="dropdown">
+            <li><a href="././vara-uppdrag/lakare.html">LÄKARE</a></li>
+            <li>
+              <a href="././vara-uppdrag/sjukskoterska.html">SJUKSKÖTERSKA</a>
+            </li>
+            <li>
+              <a href="././vara-uppdrag/underskoterska.html">UNDERSKÖTERSKA</a>
+            </li>
+            <li><a href="././vara-uppdrag/socionom.html">SOCIONOM</a></li>
+          </ul>
+        </li>
+        <li><a href="./for-kunder.html">FÖR KUNDER</a></li>
+        <li><a href="./om-oss.html">OM OSS</a></li>
+        <li><a href="./kontakta-oss.html">KONTAKTA OSS</a></li>
+      </ul>
+      <div class="menu-btn"><img src="./img/menu.svg" alt="" /></div>
+      <div class="close-btn">✕</div>
+    </nav>
+    <section id="contact-header">
+      <div class="container">
+        <div class="header-content">
+          <h1>Trygg bemanning för vårdgivare</h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-us" class="container">
+      <div class="contact-content">
+        <div class="customer-info">
+          <h1>Hyra vårdpersonal – vi matchar kompetens med behov</h1>
+          <p>
+            Vi hjälper er bemanna och hyra vårdpersonal som snabbt kan börja
+            stärka upp när behovet uppstår – både i förebyggande och akuta
+            situationer. Med oss får ni tillgång till legitimerade läkare,
+            sjuksköterskor, undersköterskor och socionomer.
+          </p>
+          <p>
+            Tack vare våra dedikerade servicefunktioner, som hanterar allt från
+            logistik till administration, blir processen smidig och tidseffektiv
+            – så att ni kan fokusera på er verksamhet. Kontakta oss gärna här
+            direkt så hör vi av oss inom kort – vi är bara ett knapptryck bort.
+          </p>
+        </div>
+
+        <form action="#" class="customer-form">
+          <h1>Skicka din förfrågan</h1>
+
+          <div class="inputsWrapper">
+            <div class="input-group">
+              <input type="text" placeholder="Fullständigt namn" required />
+            </div>
+
+            <div class="input-group">
+              <input type="tel" placeholder="Telefon" required />
+            </div>
+
+            <div class="input-group">
+              <input type="email" placeholder="E-post" required />
+            </div>
+
+            <div class="input-group">
+              <input type="text" placeholder="Namn på verksamhet" required />
+            </div>
+
+            <div class="personnel-section">
+              <h3>Vilken typ av personal har ni behov av?</h3>
+              <p>
+                Beskriv vilken typ av personal ni behöver. Om du söker en
+                särskild specialitet, ange det i beskrivningen nedan.
+              </p>
+
+              <div class="input-group">
+                <input
+                  type="text"
+                  placeholder="t.ex. Läkare, Sjuksköterska, Undersköterska"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="description-section">
+              <h3>Beskriv ert behov:</h3>
+              <textarea
+                name="description"
+                placeholder="Ange antal och period samt övriga önskemål så att vi kan hjälpa er på bästa sätt."
+                rows="6"
+                required
+              ></textarea>
+            </div>
+
+            <button class="primary-btn">Skicka in</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <h3>Kontakta Oss</h3>
+          <p>Email: info@vardbemanning.se</p>
+          <p><a href="tel:+46105164557">Telefon: +46 10-516 45 57</a></p>
+          <p>Adress: Rinkeby torget 8</p>
+        </div>
+
+        <div class="footer-content">
+          <h3>Våra Uppdrag</h3>
+          <ul class="list">
+            <li><a href="././vara-uppdrag/lakare.html">Läkare</a></li>
+            <li>
+              <a href="././vara-uppdrag/sjukskoterska.html">Sjuksköterska</a>
+            </li>
+            <li>
+              <a href="././vara-uppdrag/underskoterska.html">Undersköterska</a>
+            </li>
+            <li><a href="././vara-uppdrag/socionom.html">Socionom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-content">
+          <h3>Mitt Företag</h3>
+          <ul class="list">
+            <li><a href="./for-kunder.html">FÖR KUNDER</a></li>
+            <li><a href="./om-oss.html">OM OSS</a></li>
+            <li><a href="./kontakta-oss.html">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const closeBtn = document.querySelector(".close-btn");
+      const menuBtn = document.querySelector(".menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+      });
+
+      // Dropdown på mobil
+      const dropdownLinks = document.querySelectorAll("nav ul li > a");
+
+      dropdownLinks.forEach((link) => {
+        const parentLi = link.parentElement;
+        const dropdown = parentLi.querySelector(".dropdown");
+
+        if (dropdown) {
+          link.addEventListener("click", (e) => {
+            // Endast för mobil, desktop använder hover
+            if (window.innerWidth <= 520) {
+              e.preventDefault(); // förhindrar att länken följs
+              parentLi.classList.toggle("active"); // lägger till class för rotation och öppning
+              dropdown.style.display =
+                dropdown.style.display === "block" ? "none" : "block";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
