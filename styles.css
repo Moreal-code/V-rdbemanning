@@ -23,12 +23,45 @@ a {
 }
 
 /* Header-sidan */
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0;
+}
+
 #header {
   width: 100vw;
-  min-height: 100vh;
-  background-image: url("./img/pexels-pixabay-355770.jpg");
-  background-position: center;
+  min-height: 400px;
+  background-image: url("./img/startsidan.jpg");
+  background-position: center 30%;
   background-size: cover;
+  padding-top: 1px;
+  position: relative;
+}
+
+/* mörk overlay bakom texten för bättre läsbarhet */
+#header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+  pointer-events: none; /* blockera inte klick eller selektion */
+}
+
+/* gör header-texterna vita och lättlästa endast på index-headern */
+#header .header-content h1,
+#header .header-content p {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+#header .header-content {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -40,7 +73,11 @@ a {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 32px 0;
+  align-items: center;
+  padding: 12px 24px;
+  min-height: 72px;
+  background-color: lightblue;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 nav ul {
@@ -52,6 +89,21 @@ nav ul {
 
 nav .logo {
   font-size: 20px;
+}
+
+/* Primär länkstil i nav */
+nav .nav-links > li > a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hover/focus */
+nav .nav-links > li > a:hover,
+nav .nav-links > li > a:focus {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Dropdown styles */
@@ -69,7 +121,8 @@ nav ul li .dropdown {
   padding: 0;
   margin: 0;
   min-width: 180px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   z-index: 10;
 }
 
@@ -85,7 +138,7 @@ nav ul li .dropdown li a {
 }
 
 nav ul li .dropdown li a:hover {
-  background-color: var(--primary-light);
+  background-color: rgb(69, 138, 161);
   color: white;
 }
 
@@ -115,22 +168,23 @@ nav ul li:hover > .dropdown {
 
 .primary-btn {
   padding: 10px 24px;
-  background-color: var(--primary-light);
-  color: white;
+  background-color: rgb(69, 138, 161);
+  color: whitesmoke;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 .primary-btn:hover {
-  background-color: var(--primary-dark);
+  background-color: rgb(46, 75, 84);
 }
 
 .menu-btn {
   position: absolute;
   right: 16px;
   top: 16px;
-  background: var(--primary-light);
+  background: #333333;
   padding: 8px 12px;
   border-radius: 4px;
   display: flex;
@@ -146,11 +200,14 @@ nav ul li:hover > .dropdown {
 
 /* Tjänster del */
 #services {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   margin-top: 120px;
   gap: 30px;
   justify-content: center;
-  flex-wrap: wrap;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service {
@@ -160,11 +217,112 @@ nav ul li:hover > .dropdown {
 .service p {
   color: gray;
 }
+
+.service p.summary {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+}
 .service img {
   max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Våra uppdrag (egen layout) */
+.service img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Våra uppdrag  */
+#våra-uppdrag-header {
+  width: 100vw;
+  min-height: 400px;
+  background-image: url(./img/pexels-nietjuhart-796602.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-top: 1px;
+}
+
+/* Diskret overlay för att jämna ut bilden och ge bättre kontrast */
+#våra-uppdrag-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15));
+  pointer-events: none;
+  z-index: 0;
+}
+
+#våra-uppdrag-header .header-content h1,
+#våra-uppdrag-header .header-content p {
+  padding-top: 90px;
+  color: var(--black);
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.35);
+}
+
+#våra-uppdrag-header .header-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Roll-detaljer (Läkare, Sjuksköterska, etc.) */
+#role-detail {
+  display: flex;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  gap: 60px;
+  align-items: center;
+}
+
+.role-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.role-content h1 {
+  font-size: 36px;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.role-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.role-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.role-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.role-image img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Omvänd layout för Undersköterska och Socionom (bild vänster, text höger) */
+#role-detail.reverse {
+  flex-direction: row-reverse;
+}
+
 #assignments {
   display: grid;
   grid-template-columns: repeat(
@@ -190,12 +348,20 @@ nav ul li:hover > .dropdown {
   height: auto;
   display: block;
   margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.assignment-card img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .assignment-card h1 {
   font-size: 22px;
   margin-top: 6px;
-  color: var(--primary-dark);
+  color: var(--black);
 }
 
 .assignment-card a {
@@ -206,11 +372,25 @@ nav ul li:hover > .dropdown {
 #assignments > h2 {
   grid-column: 1 / -1;
   text-align: center;
-  color: var(--primary-dark);
+  color: var(--black);
   margin-bottom: 8px;
 }
 
 /* Om oss del */
+#about-header {
+  min-height: 400px;
+  background-image: url(./img/om-oss-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 1px;
+}
+
+#about-header .header-content h1,
+#about-header .header-content p {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  padding-top: 90px;
+}
 #about {
   display: flex;
   margin-top: 120px;
@@ -232,8 +412,71 @@ nav ul li:hover > .dropdown {
   text-transform: uppercase;
 }
 
-#about img {
-  max-width: 100%;
+.about-img {
+  flex: 1;
+  max-width: 500px;
+}
+
+.about-img img {
+  width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* Om oss omvänd layout (bild vänster, text höger) */
+#about-reverse {
+  display: flex;
+  margin-top: 120px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-img-reverse {
+  flex: 1;
+  max-width: 500px;
+  order: 1;
+}
+
+.about-content-reverse {
+  flex: 1;
+  max-width: 600px;
+  order: 2;
+}
+
+.about-content-reverse h1 {
+  font-size: 32px;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.about-content-reverse p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.about-img-reverse img {
+  width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img-reverse img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
 /* Prata med oss delen */
@@ -243,6 +486,7 @@ nav ul li:hover > .dropdown {
   background-position: center;
   min-height: 500px;
   margin-top: 120px;
+  margin-bottom: 0;
 }
 .talk-to-us-content {
   display: flex;
@@ -263,10 +507,9 @@ nav ul li:hover > .dropdown {
 
 /* Footer */
 footer {
-  background: white;
+  background: lightblue;
   padding-top: 64px;
-  border-top: 1px solid #efefef;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+  margin-top: 0%;
 }
 
 footer .container {
@@ -276,7 +519,7 @@ footer .container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap; /* gör att den anpassar sig automatiskt */
+  flex-wrap: wrap;
 }
 
 .footer-content {
@@ -297,6 +540,16 @@ footer h3 {
   margin: auto;
   padding: 7px;
   color: var(--black);
+}
+
+.footer-content a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: white;
 }
 
 .footer-content ul {
@@ -325,36 +578,176 @@ footer h3 {
 }
 
 .list li a:hover {
-  color: rgb(76, 76, 76);
+  color: white;
 }
 
 /* Kontakt sidan */
 #contact-header {
   min-height: 400px;
-  background-image: url(./img/contact-banner.png);
+  background-image: url(./img/kontakt.jpg);
   background-size: cover;
   background-position: center;
+  padding-top: 1px;
+}
+
+#contact-header .header-content h1,
+#contact-header .header-content p {
+  color: #000000;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  padding-top: 90px;
 }
 
 #contact-us {
-  display: flex;
-  justify-content: space-between;
   margin: 80px auto;
-  gap: 60px;
-}
-form {
-  flex-basis: 50%;
 }
 
-form h1 {
-  margin-left: 60px;
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: flex-start;
 }
+
+form {
+  flex: 1;
+  max-width: 500px;
+}
+
+.customer-info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.customer-info h1 {
+  font-size: 28px;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.customer-info p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.customer-form {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.customer-form h1 {
+  font-size: 24px;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
 .inputsWrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 60px;
-  margin-left: 60px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(69, 138, 161, 0.1);
+}
+
+.required {
+  position: absolute;
+  right: 12px;
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.personnel-section {
+  margin: 20px 0;
+}
+
+.personnel-section h3 {
+  font-size: 18px;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.personnel-section p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.personnel-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.personnel-select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(69, 138, 161, 0.1);
+}
+
+.description-section {
+  margin: 20px 0;
+}
+
+.description-section h3 {
+  font-size: 18px;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+
+.description-section textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  background: white;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.description-section textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(69, 138, 161, 0.1);
 }
 
 .inputsWrapper input {
@@ -387,9 +780,26 @@ form h1 {
   color: gray;
 }
 
+.detail a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.detail a:hover {
+  color: rgb(119, 221, 255);
+}
+
 /* Mediaquery */
 
 @media only screen and (max-width: 520px) {
+  /* Services: 1 kolumn på mobil */
+  #services {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 80px;
+  }
+
   /* Assignments: 1 kolumn på mobil */
   #assignments {
     grid-template-columns: 200px; /* fast kolumnbredd på mobil */
@@ -411,6 +821,42 @@ form h1 {
     gap: 24px;
     margin-top: 60px;
   }
+
+  /* About reverse mobile layout */
+  #about-reverse {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .about-img-reverse {
+    order: 1;
+  }
+
+  .about-content-reverse {
+    order: 2;
+  }
+
+  /* Role detail mobile layout */
+  #role-detail {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  /* Reverse layout on mobile also stacks vertically */
+  #role-detail.reverse {
+    flex-direction: column;
+  }
+
+  .role-content h1 {
+    font-size: 28px;
+  }
+
+  .role-content p {
+    font-size: 16px;
+  }
   /* Header och content */
   #header {
     min-height: 50vh;
@@ -425,7 +871,7 @@ form h1 {
     display: block;
   }
   nav {
-    padding: 16px;
+    padding: 12px 16px;
   }
 
   /* Mobil navbar */
@@ -508,20 +954,31 @@ form h1 {
   }
 
   /* Kontakt sidan */
-  #contact-us {
+  .contact-content {
     flex-direction: column;
+    gap: 40px;
   }
   .inputsWrapper {
     margin-left: 0;
   }
-  form h1 {
-    margin-left: 16px;
+  .customer-form {
+    padding: 20px;
+  }
+
+  .customer-form h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .customer-info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .customer-info p {
+    font-size: 15px;
+    margin-bottom: 16px;
   }
 
   /* Extra padding längst ner för scroll */
-  body {
-    padding-bottom: 50px;
-  }
 }
 
 /* Arrow */

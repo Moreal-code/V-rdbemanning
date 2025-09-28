@@ -7,40 +7,35 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <nav>
+      <div class="logo">
+        <a href="/"><h1>Vårdbemanning</h1></a>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="./vara-uppdrag.html"
+            >VÅRA UPPDRAG <span class="arrow">▼</span></a
+          >
+          <ul class="dropdown">
+            <li><a href="././vara-uppdrag/lakare.html">LÄKARE</a></li>
+            <li>
+              <a href="././vara-uppdrag/sjukskoterska.html">SJUKSKÖTERSKA</a>
+            </li>
+            <li>
+              <a href="././vara-uppdrag/underskoterska.html">UNDERSKÖTERSKA</a>
+            </li>
+            <li><a href="././vara-uppdrag/socionom.html">SOCIONOM</a></li>
+          </ul>
+        </li>
+        <li><a href="./for-kunder.html">FÖR KUNDER</a></li>
+        <li><a href="./om-oss.html">OM OSS</a></li>
+        <li><a href="./kontakta-oss.html">KONTAKTA OSS</a></li>
+      </ul>
+      <div class="menu-btn"><img src="./img/menu.svg" alt="" /></div>
+      <div class="close-btn">✕</div>
+    </nav>
     <section id="contact-header">
       <div class="container">
-        <nav>
-          <div class="logo">
-            <a href="/"><h1>Vårdbemanning</h1></a>
-          </div>
-          <ul class="nav-links">
-            <li>
-              <a href="./vara-uppdrag.html"
-                >VÅRA UPPDRAG <span class="arrow">▼</span></a
-              >
-              <ul class="dropdown">
-                <li><a href="#">LÄKARE</a></li>
-                <li><a href="#">SJUKSKÖTERSKA</a></li>
-                <li><a href="#">UNDERSKÖTERSKA</a></li>
-                <li><a href="#">SOCIONOM</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">AFFÄRSOMRÅDEN <span class="arrow">▼</span></a>
-              <ul class="dropdown">
-                <li><a href="#">LÄKARE</a></li>
-                <li><a href="#">SJUKSKÖTERSKA</a></li>
-                <li><a href="#">UNDERSKÖTERSKA</a></li>
-                <li><a href="#">SOCIONOM</a></li>
-              </ul>
-            </li>
-            <li><a href="./om-oss.html">OM OSS</a></li>
-            <li><a href="./kontakta-oss.html">KONTAKTA OSS</a></li>
-          </ul>
-          <div class="menu-btn"><img src="./img/menu.svg" alt="" /></div>
-          <div class="close-btn">✕</div>
-        </nav>
-
         <div class="header-content">
           <h1>Kontakta oss</h1>
         </div>
@@ -48,51 +43,65 @@
     </section>
 
     <section id="contact-us" class="container">
-      <form action="#">
-        <h1>Formulär</h1>
+      <div class="contact-content">
+        <form action="#" class="customer-form">
+          <h1>Kontakta oss</h1>
 
-        <div class="inputsWrapper">
-          <input type="text" placeholder="Namn" />
-          <input type="text" placeholder="Specialitet" />
-          <input type="text" placeholder="E-post" />
-          <input type="text" placeholder="Telefonnummer" />
-          <textarea
-            name="message"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Ditt meddelande"
-          ></textarea>
-          <button class="primary-btn">Skicka</button>
-        </div>
-      </form>
-
-      <div class="address">
-        <h1>Prata med oss</h1>
-
-        <div class="detailsWrapper">
-          <div class="detail">
-            <img src="./img/email.png" alt="" />
-            <div class="text">
-              <h6>Email</h6>
-              <p>Här ska mailet vara</p>
+          <div class="inputsWrapper">
+            <div class="input-group">
+              <input type="text" placeholder="Fullständigt namn" required />
             </div>
-          </div>
-          <div class="detail">
-            <img src="./img/phone.png" alt="" />
-            <div class="text">
-              <h6>Telefon</h6>
-              <p>Här ska telefonnummret vara</p>
+
+            <div class="input-group">
+              <input type="email" placeholder="E-post" required />
             </div>
+
+            <div class="input-group">
+              <input type="tel" placeholder="Telefon" required />
+            </div>
+
+            <div class="input-group">
+              <input type="text" placeholder="Specialitet/Område" required />
+            </div>
+
+            <div class="description-section">
+              <h3>Ditt meddelande:</h3>
+              <textarea
+                name="message"
+                placeholder="Beskriv ditt behov eller fråga så återkommer vi till dig."
+                rows="6"
+                required
+              ></textarea>
+            </div>
+
+            <button class="primary-btn">Skicka meddelande</button>
           </div>
-          <div class="detail">
-            <img src="./img/location.png" alt="" />
-            <div class="text">
-              <h6>Hitta till oss</h6>
-              <p>
-                Här ska addressen vara <br />
-                ackncknsdklc
-              </p>
+        </form>
+
+        <div class="address">
+          <h1>Prata med oss</h1>
+
+          <div class="detailsWrapper">
+            <div class="detail">
+              <img src="./img/email.png" alt="" />
+              <div class="text">
+                <h6>Email</h6>
+                <p>info@vardbemanning.se</p>
+              </div>
+            </div>
+            <div class="detail">
+              <img src="./img/phone.png" alt="" />
+              <div class="text">
+                <h6>Telefon</h6>
+                <p><a href="tel:+46105164557">+46 10-516 45 57</a></p>
+              </div>
+            </div>
+            <div class="detail">
+              <img src="./img/location.png" alt="" />
+              <div class="text">
+                <h6>Hitta till oss</h6>
+                <p>Rinkeby torget 8</p>
+              </div>
             </div>
           </div>
         </div>
@@ -104,26 +113,21 @@
         <div class="footer-content">
           <h3>Våra Uppdrag</h3>
           <ul class="list">
-            <li><a href="#">Läkare</a></li>
-            <li><a href="#">Sjuksköterska</a></li>
-            <li><a href="#">Undersköterska</a></li>
-            <li><a href="#">Socionom</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-content">
-          <h3>Affärsområden</h3>
-          <ul class="list">
-            <li><a href="#">Läkare</a></li>
-            <li><a href="#">Sjuksköterska</a></li>
-            <li><a href="#">Undersköterska</a></li>
-            <li><a href="#">Socionom</a></li>
+            <li><a href="././vara-uppdrag/lakare.html">Läkare</a></li>
+            <li>
+              <a href="././vara-uppdrag/sjukskoterska.html">Sjuksköterska</a>
+            </li>
+            <li>
+              <a href="././vara-uppdrag/underskoterska.html">Undersköterska</a>
+            </li>
+            <li><a href="././vara-uppdrag/socionom.html">Socionom</a></li>
           </ul>
         </div>
 
         <div class="footer-content">
           <h3>Mitt Företag</h3>
           <ul class="list">
+            <li><a href="./for-kunder.html">För Kunder</a></li>
             <li><a href="./om-oss.html">Om Oss</a></li>
             <li><a href="./kontakta-oss.html">Kontakt</a></li>
           </ul>
