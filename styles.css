@@ -91,6 +91,11 @@ nav .logo {
   font-size: 20px;
 }
 
+nav .logo img {
+  max-height: 100px;
+  width: auto;
+}
+
 /* Primär länkstil i nav */
 nav .nav-links > li > a {
   display: inline-flex;

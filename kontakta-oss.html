@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kontakt</title>
+    <title>Kontakta oss - Vårdbemanning</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -49,19 +49,29 @@
 
           <div class="inputsWrapper">
             <div class="input-group">
-              <input type="text" placeholder="Fullständigt namn" required />
+              <input
+                type="text"
+                name="full_name"
+                placeholder="Fullständigt namn"
+                required
+              />
             </div>
 
             <div class="input-group">
-              <input type="email" placeholder="E-post" required />
+              <input type="email" name="email" placeholder="E-post" required />
             </div>
 
             <div class="input-group">
-              <input type="tel" placeholder="Telefon" required />
+              <input type="tel" name="phone" placeholder="Telefon" required />
             </div>
 
             <div class="input-group">
-              <input type="text" placeholder="Specialitet/Område" required />
+              <input
+                type="text"
+                name="speciality"
+                placeholder="Specialitet/Område"
+                required
+              />
             </div>
 
             <div class="description-section">
@@ -80,13 +90,22 @@
 
         <div class="address">
           <h1>Prata med oss</h1>
+          <p>
+            Är du intresserad av att arbeta med oss? Vi ser gärna att du skickar
+            ditt CV och personliga brev till mailadressen nedan, så återkommer
+            vi till dig så snart som möjligt.
+          </p>
 
           <div class="detailsWrapper">
             <div class="detail">
               <img src="./img/email.png" alt="" />
               <div class="text">
                 <h6>Email</h6>
-                <p>info@vardbemanning.se</p>
+                <p>
+                  <a href="mailto:info@karriarmatchning.com"
+                    >info@karriarmatchning.com</a
+                  >
+                </p>
               </div>
             </div>
             <div class="detail">
@@ -100,7 +119,13 @@
               <img src="./img/location.png" alt="" />
               <div class="text">
                 <h6>Hitta till oss</h6>
-                <p>Rinkeby torget 8</p>
+                <p>
+                  <a
+                    href="https://www.google.com/maps/search/Rinkeby+torget+8"
+                    target="_blank"
+                    >Rinkeby torget 8</a
+                  >
+                </p>
               </div>
             </div>
           </div>
@@ -167,6 +192,39 @@
           });
         }
       });
+    </script>
+
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- EmailJS Integration -->
+    <script>
+      (function () {
+        // Initiera EmailJS
+        emailjs.init("Iquy8cTEoIqQfGv2c");
+
+        // Hämta formuläret
+        const contactForm = document.querySelector(".customer-form");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Förhindra normal formulärinlämning
+
+            // Skicka formuläret via EmailJS
+            emailjs.sendForm("service_sxn1nif", "template_sxqn9od", this).then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                alert("Meddelandet skickat!");
+                contactForm.reset(); // Nollställ formuläret
+              },
+              function (error) {
+                console.log("FAILED...", error);
+                alert("Ett fel uppstod: " + JSON.stringify(error));
+              }
+            );
+          });
+        }
+      })();
     </script>
   </body>
 </html>
