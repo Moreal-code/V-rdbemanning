@@ -92,8 +92,9 @@ nav .logo {
 }
 
 nav .logo img {
-  max-height: 100px;
+  max-height: 80px;
   width: auto;
+  margin-left: 20px;
 }
 
 /* Primär länkstil i nav */
@@ -795,6 +796,7 @@ form {
     grid-template-columns: 1fr;
     gap: 20px;
     margin-top: 80px;
+    justify-items: center;
   }
 
   /* Assignments: 1 kolumn på mobil */
@@ -976,6 +978,11 @@ form {
   }
 
   /* Extra padding längst ner för scroll */
+
+  /* Logo mindre på mobil */
+  nav .logo img {
+    max-height: 50px;
+  }
 }
 
 /* Arrow */
